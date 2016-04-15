@@ -1,0 +1,38 @@
+﻿html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    margin-bottom: 60px;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+    background-color: 	#000000;/*#c70000;*/
+}
+
+.form-signin {
+    max-width: 330px;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
+#distanceFromTop {
+    padding-top: 100px;
+    padding-bottom: 50px;
+}
+
+td div {
+    max-width: 280px;
+    word-wrap: break-word;
+}
+
+#customDiv {
+    max-width: 333px;
+}

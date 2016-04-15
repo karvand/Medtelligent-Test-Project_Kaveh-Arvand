@@ -1,0 +1,30 @@
+C:\Users\karvand\Documents\Visual Studio 2013\Projects\New folder\Movie Finder\Movie Finder\obj\Debug\Movie Finder.csprojResolveAssemblyReference.cache
+C:\Users\karvand\Documents\Visual Studio 2013\Projects\New folder\Movie Finder\Movie Finder\bin\Movie Finder.dll.config
+C:\Users\karvand\Documents\Visual Studio 2013\Projects\New folder\Movie Finder\Movie Finder\bin\Movie Finder.dll
+C:\Users\karvand\Documents\Visual Studio 2013\Projects\New folder\Movie Finder\Movie Finder\bin\Movie Finder.pdb
+C:\Users\karvand\Documents\Visual Studio 2013\Projects\New folder\Movie Finder\Movie Finder\bin\AjaxControlToolkit.dll
+C:\Users\karvand\Documents\Visual Studio 2013\Projects\New folder\Movie Finder\Movie Finder\bin\DataAccessLayer.dll
+C:\Users\karvand\Documents\Visual Studio 2013\Projects\New folder\Movie Finder\Movie Finder\bin\EntityFramework.dll
+C:\Users\karvand\Documents\Visual Studio 2013\Projects\New folder\Movie Finder\Movie Finder\bin\EntityFramework.SqlServer.dll
+C:\Users\karvand\Documents\Visual Studio 2013\Projects\New folder\Movie Finder\Movie Finder\bin\EntityFramework.Web.UI.dll
+C:\Users\karvand\Documents\Visual Studio 2013\Projects\New folder\Movie Finder\Movie Finder\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\karvand\Documents\Visual Studio 2013\Projects\New folder\Movie Finder\Movie Finder\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\karvand\Documents\Visual Studio 2013\Projects\New folder\Movie Finder\Movie Finder\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\karvand\Documents\Visual Studio 2013\Projects\New folder\Movie Finder\Movie Finder\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\karvand\Documents\Visual Studio 2013\Projects\New folder\Movie Finder\Movie Finder\bin\Microsoft.AI.Web.dll
+C:\Users\karvand\Documents\Visual Studio 2013\Projects\New folder\Movie Finder\Movie Finder\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\karvand\Documents\Visual Studio 2013\Projects\New folder\Movie Finder\Movie Finder\bin\Microsoft.ApplicationInsights.dll
+C:\Users\karvand\Documents\Visual Studio 2013\Projects\New folder\Movie Finder\Movie Finder\bin\Microsoft.AspNet.EntityDataSource.dll
+C:\Users\karvand\Documents\Visual Studio 2013\Projects\New folder\Movie Finder\Movie Finder\bin\Microsoft.AspNet.FriendlyUrls.dll
+C:\Users\karvand\Documents\Visual Studio 2013\Projects\New folder\Movie Finder\Movie Finder\bin\DataAccessLayer.pdb
+C:\Users\karvand\Documents\Visual Studio 2013\Projects\New folder\Movie Finder\Movie Finder\bin\EntityFramework.xml
+C:\Users\karvand\Documents\Visual Studio 2013\Projects\New folder\Movie Finder\Movie Finder\bin\EntityFramework.SqlServer.xml
+C:\Users\karvand\Documents\Visual Studio 2013\Projects\New folder\Movie Finder\Movie Finder\bin\EntityFramework.Web.UI.xml
+C:\Users\karvand\Documents\Visual Studio 2013\Projects\New folder\Movie Finder\Movie Finder\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\karvand\Documents\Visual Studio 2013\Projects\New folder\Movie Finder\Movie Finder\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\karvand\Documents\Visual Studio 2013\Projects\New folder\Movie Finder\Movie Finder\bin\Microsoft.AI.Web.xml
+C:\Users\karvand\Documents\Visual Studio 2013\Projects\New folder\Movie Finder\Movie Finder\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\karvand\Documents\Visual Studio 2013\Projects\New folder\Movie Finder\Movie Finder\bin\Microsoft.ApplicationInsights.xml
+C:\Users\karvand\Documents\Visual Studio 2013\Projects\New folder\Movie Finder\Movie Finder\bin\Microsoft.AspNet.FriendlyUrls.xml
+C:\Users\karvand\Documents\Visual Studio 2013\Projects\New folder\Movie Finder\Movie Finder\obj\Debug\Movie Finder.dll
+C:\Users\karvand\Documents\Visual Studio 2013\Projects\New folder\Movie Finder\Movie Finder\obj\Debug\Movie Finder.pdb

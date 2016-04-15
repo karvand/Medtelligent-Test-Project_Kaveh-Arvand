@@ -1,0 +1,10 @@
+C:\Users\karvand\Documents\Visual Studio 2013\Projects\New folder\Movie Finder\DataAccessLayer\bin\Debug\DataAccessLayer.dll.config
+C:\Users\karvand\Documents\Visual Studio 2013\Projects\New folder\Movie Finder\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\karvand\Documents\Visual Studio 2013\Projects\New folder\Movie Finder\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\karvand\Documents\Visual Studio 2013\Projects\New folder\Movie Finder\DataAccessLayer\bin\Debug\EntityFramework.dll
+C:\Users\karvand\Documents\Visual Studio 2013\Projects\New folder\Movie Finder\DataAccessLayer\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\karvand\Documents\Visual Studio 2013\Projects\New folder\Movie Finder\DataAccessLayer\bin\Debug\EntityFramework.xml
+C:\Users\karvand\Documents\Visual Studio 2013\Projects\New folder\Movie Finder\DataAccessLayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\karvand\Documents\Visual Studio 2013\Projects\New folder\Movie Finder\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+C:\Users\karvand\Documents\Visual Studio 2013\Projects\New folder\Movie Finder\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+C:\Users\karvand\Documents\Visual Studio 2013\Projects\New folder\Movie Finder\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache

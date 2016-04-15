@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MovieFinderModelStoreContainer" CdmEntityContainer="MovieFinderEntities">
+    <EntitySetMapping Name="Genres">
+      <EntityTypeMapping TypeName="MovieFinderModel.Genre">
+        <MappingFragment StoreEntitySet="Genres">
+          <ScalarProperty Name="GenreId" ColumnName="GenreId" />
+          <ScalarProperty Name="GenreName" ColumnName="GenreName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="MovieFinderModel.Genre">
+        <ModificationFunctionMapping>
+          <InsertFunction FunctionName="MovieFinderModel.Store.sp_AddGenre">
+            <ScalarProperty Name="GenreName" ParameterName="GenreName" />
+          </InsertFunction>
+          <DeleteFunction FunctionName="MovieFinderModel.Store.sp_DeleteGenre">
+            <ScalarProperty Name="GenreId" ParameterName="GenreId" />
+          </DeleteFunction>
+        </ModificationFunctionMapping>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Movies1">
+      <EntityTypeMapping TypeName="MovieFinderModel.Movie">
+        <MappingFragment StoreEntitySet="Movies">
+          <ScalarProperty Name="MovieId" ColumnName="MovieId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ReleaseYear" ColumnName="ReleaseYear" />
+          <ScalarProperty Name="Director" ColumnName="Director" />
+          <ScalarProperty Name="GenreId" ColumnName="GenreId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="MovieFinderModel.Movie">
+        <ModificationFunctionMapping>
+          <InsertFunction FunctionName="MovieFinderModel.Store.sp_AddMovie">
+            <ScalarProperty Name="GenreId" ParameterName="GenreId" />
+            <ScalarProperty Name="Director" ParameterName="Director" />
+            <ScalarProperty Name="ReleaseYear" ParameterName="ReleaseYear" />
+            <ScalarProperty Name="Title" ParameterName="Title" />
+          </InsertFunction>
+          <DeleteFunction FunctionName="MovieFinderModel.Store.sp_DeleteMovie">
+            <ScalarProperty Name="MovieId" ParameterName="MovieId" />
+          </DeleteFunction>
+        </ModificationFunctionMapping>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="MovieFinderModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="MovieFinderModel.User">
+        <ModificationFunctionMapping>
+          <InsertFunction FunctionName="MovieFinderModel.Store.AddUser">
+            <ScalarProperty Name="UserName" ParameterName="Username" />
+            <ScalarProperty Name="LastName" ParameterName="LastName" />
+            <ScalarProperty Name="FirstName" ParameterName="FirstName" />
+            <ScalarProperty Name="Password" ParameterName="Password" />
+          </InsertFunction>
+          <DeleteFunction FunctionName="MovieFinderModel.Store.DeleteUser">
+            <ScalarProperty Name="UserId" ParameterName="UserId" />
+          </DeleteFunction>
+        </ModificationFunctionMapping>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_GetGenreById" FunctionName="MovieFinderModel.Store.sp_GetGenreById" />
+    <FunctionImportMapping FunctionImportName="sp_GetGenreByName" FunctionName="MovieFinderModel.Store.sp_GetGenreByName" />
+    <FunctionImportMapping FunctionImportName="sp_UpdateGenre" FunctionName="MovieFinderModel.Store.sp_UpdateGenre" />
+    <FunctionImportMapping FunctionImportName="sp_GetMoviesByName" FunctionName="MovieFinderModel.Store.sp_GetMoviesByName" />
+    <FunctionImportMapping FunctionImportName="sp_UpdateMovie" FunctionName="MovieFinderModel.Store.sp_UpdateMovie" />
+    <FunctionImportMapping FunctionImportName="sp_GetGenres" FunctionName="MovieFinderModel.Store.sp_GetGenres" />
+    <FunctionImportMapping FunctionImportName="sp_GetMovieById" FunctionName="MovieFinderModel.Store.sp_GetMovieById" />
+    <FunctionImportMapping FunctionImportName="GetMovies" FunctionName="MovieFinderModel.Store.sp_GetMovies">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MovieFinderModel.GetMovies_Result">
+          <ScalarProperty Name="MovieId" ColumnName="MovieId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Director" ColumnName="Director" />
+          <ScalarProperty Name="ReleaseYear" ColumnName="ReleaseYear" />
+          <ScalarProperty Name="GenreId" ColumnName="GenreId" />
+          <ScalarProperty Name="GenreName" ColumnName="GenreName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetMoviesByGenre" FunctionName="MovieFinderModel.Store.sp_GetMoviesByGenre">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MovieFinderModel.GetMovies_Result">
+          <ScalarProperty Name="MovieId" ColumnName="MovieId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Director" ColumnName="Director" />
+          <ScalarProperty Name="ReleaseYear" ColumnName="ReleaseYear" />
+          <ScalarProperty Name="GenreId" ColumnName="GenreId" />
+          <ScalarProperty Name="GenreName" ColumnName="GenreName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetMoviesByKeyword" FunctionName="MovieFinderModel.Store.sp_GetMoviesByKeyword" />
+    <FunctionImportMapping FunctionImportName="GetMovieCompleteByKeyword" FunctionName="MovieFinderModel.Store.sp_GetMovieCompleteByKeyword">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MovieFinderModel.GetMovies_Result">
+          <ScalarProperty Name="MovieId" ColumnName="MovieId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Director" ColumnName="Director" />
+          <ScalarProperty Name="ReleaseYear" ColumnName="ReleaseYear" />
+          <ScalarProperty Name="GenreId" ColumnName="GenreId" />
+          <ScalarProperty Name="GenreName" ColumnName="GenreName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetUserByUsernamePassword" FunctionName="MovieFinderModel.Store.GetUserByUsernamePassword" />
+    <FunctionImportMapping FunctionImportName="GetUsers" FunctionName="MovieFinderModel.Store.GetUsers" />
+    <FunctionImportMapping FunctionImportName="GetUserByUsername" FunctionName="MovieFinderModel.Store.GetUserByUsername" />
+    <FunctionImportMapping FunctionImportName="GetUserByUserId" FunctionName="MovieFinderModel.Store.GetUserByUserId" />
+    <FunctionImportMapping FunctionImportName="UpdateUser" FunctionName="MovieFinderModel.Store.UpdateUser" />
+  </EntityContainerMapping>
+</Mapping>

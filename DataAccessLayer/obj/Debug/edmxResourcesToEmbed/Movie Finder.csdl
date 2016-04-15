@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MovieFinderModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Genre">
+    <Key>
+      <PropertyRef Name="GenreId" />
+    </Key>
+    <Property Name="GenreId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GenreName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Movies" Relationship="Self.FK_Movies_Genres" FromRole="Genres" ToRole="Movies" />
+  </EntityType>
+  <EntityType Name="Movie">
+    <Key>
+      <PropertyRef Name="MovieId" />
+    </Key>
+    <Property Name="MovieId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ReleaseYear" Type="Int16" Nullable="false" />
+    <Property Name="Director" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GenreId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Genre" Relationship="Self.FK_Movies_Genres" FromRole="Movies" ToRole="Genres" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_Movies_Genres">
+    <End Role="Genres" Type="Self.Genre" Multiplicity="1" />
+    <End Role="Movies" Type="MovieFinderModel.Movie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Genres">
+        <PropertyRef Name="GenreId" />
+      </Principal>
+      <Dependent Role="Movies">
+        <PropertyRef Name="GenreId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MovieFinderEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Genres" EntityType="Self.Genre" />
+    <EntitySet Name="Movies1" EntityType="MovieFinderModel.Movie" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <AssociationSet Name="FK_Movies_Genres" Association="Self.FK_Movies_Genres">
+      <End Role="Genres" EntitySet="Genres" />
+      <End Role="Movies" EntitySet="Movies1" />
+    </AssociationSet>
+    <FunctionImport Name="sp_GetGenreById" EntitySet="Genres" ReturnType="Collection(MovieFinderModel.Genre)">
+      <Parameter Name="GenreId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_GetGenreByName" EntitySet="Genres" ReturnType="Collection(MovieFinderModel.Genre)">
+      <Parameter Name="GenreName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_UpdateGenre">
+      <Parameter Name="GenreId" Mode="In" Type="Int32" />
+      <Parameter Name="GenreName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_GetMoviesByName" EntitySet="Movies1" ReturnType="Collection(MovieFinderModel.Movie)">
+      <Parameter Name="Title" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_UpdateMovie">
+      <Parameter Name="MovieId" Mode="In" Type="Int32" />
+      <Parameter Name="Title" Mode="In" Type="String" />
+      <Parameter Name="ReleaseYear" Mode="In" Type="Int16" />
+      <Parameter Name="Director" Mode="In" Type="String" />
+      <Parameter Name="GenreId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_GetGenres" EntitySet="Genres" ReturnType="Collection(MovieFinderModel.Genre)" />
+    <FunctionImport Name="sp_GetMovieById" EntitySet="Movies1" ReturnType="Collection(MovieFinderModel.Movie)">
+      <Parameter Name="MovieId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetMovies" ReturnType="Collection(MovieFinderModel.GetMovies_Result)" />
+    <FunctionImport Name="GetMoviesByGenre" ReturnType="Collection(MovieFinderModel.GetMovies_Result)">
+      <Parameter Name="GenreName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetMoviesByKeyword" ReturnType="Collection(String)">
+      <Parameter Name="Keyword" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetMovieCompleteByKeyword" ReturnType="Collection(MovieFinderModel.GetMovies_Result)">
+      <Parameter Name="keyword" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetUserByUsernamePassword" EntitySet="Users" ReturnType="Collection(MovieFinderModel.User)">
+      <Parameter Name="Username" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetUsers" EntitySet="Users" ReturnType="Collection(MovieFinderModel.User)" />
+    <FunctionImport Name="GetUserByUsername" EntitySet="Users" ReturnType="Collection(MovieFinderModel.User)">
+      <Parameter Name="Username" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetUserByUserId" EntitySet="Users" ReturnType="Collection(MovieFinderModel.User)">
+      <Parameter Name="UserId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="UpdateUser">
+      <Parameter Name="UserId" Mode="In" Type="Int32" />
+      <Parameter Name="FirstName" Mode="In" Type="String" />
+      <Parameter Name="LastName" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="sp_GetGenreById_Result">
+    <Property Type="Int32" Name="GenreId" Nullable="false" />
+    <Property Type="String" Name="GenreName" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="sp_GetGenreByName_Result">
+    <Property Type="Int32" Name="GenreId" Nullable="false" />
+    <Property Type="String" Name="GenreName" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="sp_GetMoviesByName_Result">
+    <Property Type="Int32" Name="MovieId" Nullable="false" />
+    <Property Type="String" Name="Title" Nullable="false" MaxLength="50" />
+    <Property Type="Int16" Name="ReleaseYear" Nullable="false" />
+    <Property Type="String" Name="Director" Nullable="false" MaxLength="60" />
+    <Property Type="Int32" Name="GenreId" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="sp_GetGenres_Result">
+    <Property Type="Int32" Name="GenreId" Nullable="false" />
+    <Property Type="String" Name="GenreName" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="sp_GetMovieById_Result">
+    <Property Type="Int32" Name="MovieId" Nullable="false" />
+    <Property Type="String" Name="Title" Nullable="false" MaxLength="50" />
+    <Property Type="Int16" Name="ReleaseYear" Nullable="false" />
+    <Property Type="String" Name="Director" Nullable="false" MaxLength="60" />
+    <Property Type="Int32" Name="GenreId" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="GetMovies_Result">
+    <Property Type="Int32" Name="MovieId" Nullable="false" />
+    <Property Type="String" Name="Title" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Director" Nullable="false" MaxLength="60" />
+    <Property Type="Int16" Name="ReleaseYear" Nullable="false" />
+    <Property Type="Int32" Name="GenreId" Nullable="false" />
+    <Property Type="String" Name="GenreName" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="GetUserByUsernamePassword_Result">
+    <Property Type="Int32" Name="UserId" Nullable="false" />
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Password" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="FirstName" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="LastName" Nullable="false" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="GetUsers_Result">
+    <Property Type="Int32" Name="UserId" Nullable="false" />
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Password" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="FirstName" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="LastName" Nullable="false" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="GetUserByUsername_Result">
+    <Property Type="Int32" Name="UserId" Nullable="false" />
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Password" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="FirstName" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="LastName" Nullable="false" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="GetUserByUserId_Result">
+    <Property Type="Int32" Name="UserId" Nullable="false" />
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Password" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="FirstName" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="LastName" Nullable="false" MaxLength="20" />
+  </ComplexType>
+</Schema>

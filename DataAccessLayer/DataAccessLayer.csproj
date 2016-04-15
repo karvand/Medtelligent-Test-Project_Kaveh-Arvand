@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2FF0104F-F532-4BF0-AD04-152EC62234A5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DataAccessLayer</RootNamespace>
+    <AssemblyName>DataAccessLayer</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GenreDataAccess.cs" />
+    <Compile Include="Genre.cs">
+      <DependentUpon>Movie Finder.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetMovies_Result.cs">
+      <DependentUpon>Movie Finder.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetUserByUserId_Result.cs">
+      <DependentUpon>Movie Finder.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetUserByUsernamePassword_Result.cs">
+      <DependentUpon>Movie Finder.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetUserByUsername_Result.cs">
+      <DependentUpon>Movie Finder.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetUsers_Result.cs">
+      <DependentUpon>Movie Finder.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IDataAccess.cs" />
+    <Compile Include="IGenreDataAccess.cs" />
+    <Compile Include="IMovieDataAccess.cs" />
+    <Compile Include="IUserDataAccess.cs" />
+    <Compile Include="Movie Finder.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Movie Finder.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Movie Finder.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Movie Finder.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Movie Finder.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Movie Finder.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Movie.cs">
+      <DependentUpon>Movie Finder.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MovieDataAccess.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="sp_GetGenreById_Result.cs">
+      <DependentUpon>Movie Finder.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_GetGenreByName_Result.cs">
+      <DependentUpon>Movie Finder.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_GetGenres_Result.cs">
+      <DependentUpon>Movie Finder.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_GetMovieById_Result.cs">
+      <DependentUpon>Movie Finder.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_GetMoviesByName_Result.cs">
+      <DependentUpon>Movie Finder.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>Movie Finder.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserDataAccess.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="Movie Finder.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Movie Finder.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="Movie Finder.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Movie Finder.edmx</DependentUpon>
+      <LastGenOutput>Movie Finder.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Movie Finder.edmx.diagram">
+      <DependentUpon>Movie Finder.edmx</DependentUpon>
+    </None>
+    <None Include="Movie Finder.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Movie Finder.edmx</DependentUpon>
+      <LastGenOutput>Movie Finder.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
